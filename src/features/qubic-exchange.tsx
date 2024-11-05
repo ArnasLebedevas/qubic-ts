@@ -84,7 +84,7 @@ const QubicExchange: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full min-h-screen ">
+    <div className="flex flex-col items-center w-full min-h-screen m-auto justify-center">
       <img src={logo} alt="Qubic Logo" className="w-24 h-24 mb-4" />
       <h1 className="text-4xl font-extrabold text-cyan-500 mb-5">
         QUBIC EXCHANGE SIMULATION

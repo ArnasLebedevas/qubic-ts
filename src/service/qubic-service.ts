@@ -3,10 +3,11 @@ import { QubicConnector } from "@qubic-lib/qubic-ts-library/dist/QubicConnector"
 import { QubicHelper } from "@qubic-lib/qubic-ts-library/dist/qubicHelper";
 import { User } from "../types/user";
 import { Wallet } from "../types/wallet";
+import { IP_CONNECTION } from "../constant/qubic";
 
-class QubicService {
+export class QubicService {
   private helper: QubicHelper;
-  private connector: QubicConnector;
+  public connector: QubicConnector;
   public users: User[] = [];
   public hotWallet: Wallet | null = null;
   public currentTick: number = 0;
@@ -22,7 +23,7 @@ class QubicService {
     };
     this.connector.onReady = () => {
       console.log("ready");
-      this.connector.connect("82.197.173.131");
+      this.connector.connect(IP_CONNECTION);
     };
   }
 
