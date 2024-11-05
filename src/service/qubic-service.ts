@@ -9,7 +9,7 @@ class QubicService {
   private connector: QubicConnector;
   public users: User[] = [];
   public hotWallet: Wallet | null = null;
-  private currentTick: number = 0;
+  public currentTick: number = 0;
 
   constructor() {
     this.helper = new QubicHelper();
@@ -70,6 +70,12 @@ class QubicService {
       const success = this.connector.sendPackage(transactionPayload);
       if (success) {
         user.balance -= amount;
+        const existingUser = this.users.find(
+          (user) => user.depositWallet.publicId === destinationPublicId
+        );
+        if (existingUser) {
+          existingUser.depositWallet.balance += amount;
+        }
         console.log(
           `Withdrawal successful for user ${user.id}: ${amount} Qubic to ${destinationPublicId}`
         );
