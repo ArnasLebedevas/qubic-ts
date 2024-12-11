@@ -44,7 +44,7 @@ const QubicExchange: React.FC = () => {
     };
 
     connect();
-  }, []);
+  }, [isConnected]);
 
   const handleWithdraw = async () => {
     if (selectedUser && withdrawAmount > 0 && withdrawToPublicId && !selectedUser.locked) {
