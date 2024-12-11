@@ -66,6 +66,7 @@ describe("QubicService", () => {
   describe("withdraw", () => {
     it("should throw error if user has insufficient balance", async () => {
       const user: User = {
+        locked: false,
         id: 1,
         depositWallet: {
           seed: "seed",
@@ -84,6 +85,7 @@ describe("QubicService", () => {
 
     it("should process the withdrawal if balance is sufficient and update user balance", async () => {
       const user: User = {
+        locked: false,
         id: 1,
         depositWallet: {
           seed: "seed",
@@ -117,6 +119,7 @@ describe("QubicService", () => {
   describe("transfer", () => {
     it("should throw error if sender has insufficient balance", async () => {
       const sender: User = {
+        locked: false,
         id: 1,
         depositWallet: {
           seed: "seed1",
@@ -128,6 +131,7 @@ describe("QubicService", () => {
         balance: 300,
       };
       const receiver: User = {
+        locked: false,
         id: 2,
         depositWallet: {
           seed: "seed2",
@@ -146,6 +150,7 @@ describe("QubicService", () => {
 
     it("should process the transfer if sender has sufficient balance and update both balances", async () => {
       const sender: User = {
+        locked: false,
         id: 1,
         depositWallet: {
           seed: "seed1",
@@ -157,6 +162,7 @@ describe("QubicService", () => {
         balance: 1000,
       };
       const receiver: User = {
+        locked: false,
         id: 2,
         depositWallet: {
           seed: "seed2",
